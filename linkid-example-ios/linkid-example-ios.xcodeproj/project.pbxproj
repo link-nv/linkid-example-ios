@@ -17,17 +17,9 @@
 		F7D38822197FA0B30041AB52 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7D38820197FA0B30041AB52 /* Main.storyboard */; };
 		F7D38825197FA0B30041AB52 /* LIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7D38824197FA0B30041AB52 /* LIViewController.m */; };
 		F7D38827197FA0B30041AB52 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7D38826197FA0B30041AB52 /* Images.xcassets */; };
-		F7D38846197FA1FD0041AB52 /* LIButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F7D38845197FA1FD0041AB52 /* LIButton.m */; };
-		F7D3884A197FA37F0041AB52 /* linkid_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F7D38848197FA37F0041AB52 /* linkid_icon.png */; };
-		F7D3884B197FA37F0041AB52 /* linkid_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F7D38849197FA37F0041AB52 /* linkid_icon@2x.png */; };
 		F7D3884F197FA40A0041AB52 /* LIChooseLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7D3884E197FA40A0041AB52 /* LIChooseLoginViewController.m */; };
 		F7D38852197FA4280041AB52 /* LIUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = F7D38851197FA4280041AB52 /* LIUtil.m */; };
-		F7D38855197FA47F0041AB52 /* LISessionState.m in Sources */ = {isa = PBXBuildFile; fileRef = F7D38854197FA47F0041AB52 /* LISessionState.m */; };
-		F7D38858197FA4AF0041AB52 /* NSString+PaymentState.m in Sources */ = {isa = PBXBuildFile; fileRef = F7D38857197FA4AF0041AB52 /* NSString+PaymentState.m */; };
-		F7D3885B197FA59D0041AB52 /* LISession.m in Sources */ = {isa = PBXBuildFile; fileRef = F7D3885A197FA59D0041AB52 /* LISession.m */; };
 		F7D3885E197FA7330041AB52 /* LIStore.m in Sources */ = {isa = PBXBuildFile; fileRef = F7D3885D197FA7330041AB52 /* LIStore.m */; };
-		F7D38861197FA81A0041AB52 /* LIXCallback.m in Sources */ = {isa = PBXBuildFile; fileRef = F7D38860197FA81A0041AB52 /* LIXCallback.m */; };
-		F7D38864197FAACC0041AB52 /* NSURL+LIXcallback.m in Sources */ = {isa = PBXBuildFile; fileRef = F7D38863197FAACC0041AB52 /* NSURL+LIXcallback.m */; };
 		F7D38867197FAE890041AB52 /* LIProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = F7D38866197FAE890041AB52 /* LIProgressHUD.m */; };
 		F7D3886A197FCDAB0041AB52 /* LILinkIDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7D38869197FCDAB0041AB52 /* LILinkIDViewController.m */; };
 /* End PBXBuildFile section */
@@ -50,26 +42,12 @@
 		F7D38824197FA0B30041AB52 /* LIViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LIViewController.m; sourceTree = "<group>"; };
 		F7D38826197FA0B30041AB52 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F7D3882D197FA0B30041AB52 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		F7D38844197FA1FD0041AB52 /* LIButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LIButton.h; sourceTree = "<group>"; };
-		F7D38845197FA1FD0041AB52 /* LIButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LIButton.m; sourceTree = "<group>"; };
-		F7D38848197FA37F0041AB52 /* linkid_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = linkid_icon.png; sourceTree = "<group>"; };
-		F7D38849197FA37F0041AB52 /* linkid_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "linkid_icon@2x.png"; sourceTree = "<group>"; };
 		F7D3884D197FA40A0041AB52 /* LIChooseLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LIChooseLoginViewController.h; sourceTree = "<group>"; };
 		F7D3884E197FA40A0041AB52 /* LIChooseLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LIChooseLoginViewController.m; sourceTree = "<group>"; };
 		F7D38850197FA4280041AB52 /* LIUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LIUtil.h; sourceTree = "<group>"; };
 		F7D38851197FA4280041AB52 /* LIUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LIUtil.m; sourceTree = "<group>"; };
-		F7D38853197FA47F0041AB52 /* LISessionState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LISessionState.h; sourceTree = "<group>"; };
-		F7D38854197FA47F0041AB52 /* LISessionState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LISessionState.m; sourceTree = "<group>"; };
-		F7D38856197FA4AF0041AB52 /* NSString+PaymentState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+PaymentState.h"; sourceTree = "<group>"; };
-		F7D38857197FA4AF0041AB52 /* NSString+PaymentState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+PaymentState.m"; sourceTree = "<group>"; };
-		F7D38859197FA59D0041AB52 /* LISession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LISession.h; sourceTree = "<group>"; };
-		F7D3885A197FA59D0041AB52 /* LISession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LISession.m; sourceTree = "<group>"; };
 		F7D3885C197FA7330041AB52 /* LIStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LIStore.h; sourceTree = "<group>"; };
 		F7D3885D197FA7330041AB52 /* LIStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LIStore.m; sourceTree = "<group>"; };
-		F7D3885F197FA81A0041AB52 /* LIXCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LIXCallback.h; sourceTree = "<group>"; };
-		F7D38860197FA81A0041AB52 /* LIXCallback.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LIXCallback.m; sourceTree = "<group>"; };
-		F7D38862197FAACC0041AB52 /* NSURL+LIXcallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+LIXcallback.h"; sourceTree = "<group>"; };
-		F7D38863197FAACC0041AB52 /* NSURL+LIXcallback.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+LIXcallback.m"; sourceTree = "<group>"; };
 		F7D38865197FAE890041AB52 /* LIProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LIProgressHUD.h; sourceTree = "<group>"; };
 		F7D38866197FAE890041AB52 /* LIProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LIProgressHUD.m; sourceTree = "<group>"; };
 		F7D38868197FCDAB0041AB52 /* LILinkIDViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LILinkIDViewController.h; sourceTree = "<group>"; };
@@ -132,7 +110,6 @@
 				F7D38823197FA0B30041AB52 /* LIViewController.h */,
 				F7D38824197FA0B30041AB52 /* LIViewController.m */,
 				F7D38826197FA0B30041AB52 /* Images.xcassets */,
-				F7D38847197FA3760041AB52 /* images */,
 				F7D38815197FA0B30041AB52 /* Supporting Files */,
 			);
 			path = "linkid-example-ios";
@@ -152,35 +129,14 @@
 		F7D38843197FA1C60041AB52 /* linkid */ = {
 			isa = PBXGroup;
 			children = (
-				F7D38844197FA1FD0041AB52 /* LIButton.h */,
-				F7D38845197FA1FD0041AB52 /* LIButton.m */,
 				F7D38850197FA4280041AB52 /* LIUtil.h */,
 				F7D38851197FA4280041AB52 /* LIUtil.m */,
-				F7D38853197FA47F0041AB52 /* LISessionState.h */,
-				F7D38854197FA47F0041AB52 /* LISessionState.m */,
-				F7D38856197FA4AF0041AB52 /* NSString+PaymentState.h */,
-				F7D38857197FA4AF0041AB52 /* NSString+PaymentState.m */,
-				F7D38859197FA59D0041AB52 /* LISession.h */,
-				F7D3885A197FA59D0041AB52 /* LISession.m */,
 				F7D3885C197FA7330041AB52 /* LIStore.h */,
 				F7D3885D197FA7330041AB52 /* LIStore.m */,
-				F7D3885F197FA81A0041AB52 /* LIXCallback.h */,
-				F7D38860197FA81A0041AB52 /* LIXCallback.m */,
-				F7D38862197FAACC0041AB52 /* NSURL+LIXcallback.h */,
-				F7D38863197FAACC0041AB52 /* NSURL+LIXcallback.m */,
 				F7D38865197FAE890041AB52 /* LIProgressHUD.h */,
 				F7D38866197FAE890041AB52 /* LIProgressHUD.m */,
 			);
 			name = linkid;
-			sourceTree = "<group>";
-		};
-		F7D38847197FA3760041AB52 /* images */ = {
-			isa = PBXGroup;
-			children = (
-				F7D38848197FA37F0041AB52 /* linkid_icon.png */,
-				F7D38849197FA37F0041AB52 /* linkid_icon@2x.png */,
-			);
-			name = images;
 			sourceTree = "<group>";
 		};
 		F7D3884C197FA3D10041AB52 /* views */ = {
@@ -250,10 +206,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F7D38827197FA0B30041AB52 /* Images.xcassets in Resources */,
-				F7D3884A197FA37F0041AB52 /* linkid_icon.png in Resources */,
 				F7D38819197FA0B30041AB52 /* InfoPlist.strings in Resources */,
 				F7D38822197FA0B30041AB52 /* Main.storyboard in Resources */,
-				F7D3884B197FA37F0041AB52 /* linkid_icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,18 +252,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				F7D3881B197FA0B30041AB52 /* main.m in Sources */,
-				F7D38855197FA47F0041AB52 /* LISessionState.m in Sources */,
 				F7D3885E197FA7330041AB52 /* LIStore.m in Sources */,
 				F7D3881F197FA0B30041AB52 /* LIAppDelegate.m in Sources */,
 				F7D3886A197FCDAB0041AB52 /* LILinkIDViewController.m in Sources */,
 				F7D38867197FAE890041AB52 /* LIProgressHUD.m in Sources */,
 				F7D38852197FA4280041AB52 /* LIUtil.m in Sources */,
-				F7D38861197FA81A0041AB52 /* LIXCallback.m in Sources */,
-				F7D38858197FA4AF0041AB52 /* NSString+PaymentState.m in Sources */,
-				F7D38864197FAACC0041AB52 /* NSURL+LIXcallback.m in Sources */,
-				F7D3885B197FA59D0041AB52 /* LISession.m in Sources */,
 				F7D3884F197FA40A0041AB52 /* LIChooseLoginViewController.m in Sources */,
-				F7D38846197FA1FD0041AB52 /* LIButton.m in Sources */,
 				F7D38825197FA0B30041AB52 /* LIViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

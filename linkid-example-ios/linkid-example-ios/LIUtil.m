@@ -7,45 +7,22 @@
 //
 
 #import "LIUtil.h"
-#import "LISession.h"
 #import "LIStore.h"
-#import "LIXCallback.h"
 #import "LIAppDelegate.h"
-#import "NSURL+LIXcallback.h"
+
+#import <LinkIDSession.h>
+#import <NSURL+LinkIDXCallback.h>
+#import <LinkIDUtil.h>
 
 @interface LIUtil ()
 
-@property (nonatomic, strong) LISession     *linkIDSession;
-@property (nonatomic, strong) NSTimer       *pollTimer;
-@property (nonatomic, assign) BOOL           polling;
+@property (nonatomic, strong) LinkIDSession     *linkIDSession;
+@property (nonatomic, strong) NSTimer           *pollTimer;
+@property (nonatomic, assign) BOOL              polling;
 
 @end
 
 @implementation LIUtil
-
-+ (UIColor *)linkIDGreen {
-    return [UIColor colorWithRed:118 / 255.0f green:181 / 255.0f blue:80 / 255.0f alpha:1.0f];
-}
-
-+ (void)installLinkID {
-    
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"itms-apps://itunes.com/apps/linkidformobile"]];
-}
-
-+ (BOOL)isLinkIDInstalled {
-    
-    NSURL *linkIDTestURLLocal = [NSURL URLWithString:@"linkidmauthurllocal://test"];
-    NSURL *linkIDTestURLDemo = [NSURL URLWithString:@"linkidmauthurldemo://test"];
-    NSURL *linkIDTestURLService = [NSURL URLWithString:@"linkidmauthurl://test"];
-    if ([[UIApplication sharedApplication] canOpenURL:linkIDTestURLLocal] ||
-        [[UIApplication sharedApplication] canOpenURL:linkIDTestURLDemo] ||
-        [[UIApplication sharedApplication] canOpenURL:linkIDTestURLService]) {
-        
-        return YES;
-    }
-    
-    return NO;
-}
 
 - (void) abort {
     
@@ -58,27 +35,18 @@
     self.linkIDSession = nil;
     self.linkIDOtherDevice = NO;
     
-    [[LIStore get] startLinkID:^(LISession *linkIDSession) {
+    [[LIStore get] startLinkID:^(LinkIDSession *linkIDSession) {
         
         [self handleLinkIDSessionStart:linkIDSession withHud:hud];
     }];
 }
 
-- (void) handleLinkIDSessionStart:(LISession *) linkIDSession withHud:(MBProgressHUD *)hud {
+- (void) handleLinkIDSessionStart:(LinkIDSession *) linkIDSession withHud:(MBProgressHUD *)hud {
     
     [hud hide:YES];
     self.linkIDSession = linkIDSession; // store for when user gets back
     
-    // add x-callback parameters
-    LIXCallback *xCallback = [[LIXCallback alloc] initWithSource:@"linkID example"
-                                                     withSuccess:LIString(@"%@://%@", LI_SCHEME, LI_CB_SUCCESS)
-                                                       withError:LIString(@"%@://%@", LI_SCHEME, LI_CB_ERROR)
-                                                      withCancel:LIString(@"%@://%@", LI_SCHEME, LI_CB_CANCEL)];
-    NSURL *qrURL = [NSURL URLWithString:self.linkIDSession.qrCodeURL];
-    NSURL *cbURL = [qrURL URLByAppendingXCallback:xCallback];
-    
-    [[UIApplication sharedApplication] openURL:cbURL];
-    
+    [LinkIDUtil startLinkID:self.linkIDSession.qrCodeURL withSource:@"linkID example" withScheme:LI_SCHEME withSuccess:LI_CB_SUCCESS withError:LI_CB_ERROR withCancel:LI_CB_CANCEL];
 }
 
 - (void) startLinkIDOtherDevice:(id<LIDelegate>)delegate withImageView:(UIImageView *)imageView withHud:(MBProgressHUD *)hud {
@@ -86,14 +54,14 @@
     self.linkIDSession = nil;
     self.linkIDOtherDevice = YES;
     
-    [[LIStore get] startLinkID:^(LISession *linkIDSession) {
+    [[LIStore get] startLinkID:^(LinkIDSession *linkIDSession) {
         
         [self handleLinkIDSessionStart:linkIDSession withImageView:imageView withDelegate:delegate withHud:hud];
     }];
     
 }
 
-- (void) handleLinkIDSessionStart:(LISession *)linkIDSession withImageView:(UIImageView *)imageView withDelegate:(id<LIDelegate>)delegate withHud:(MBProgressHUD *)hud {
+- (void) handleLinkIDSessionStart:(LinkIDSession *)linkIDSession withImageView:(UIImageView *)imageView withDelegate:(id<LIDelegate>)delegate withHud:(MBProgressHUD *)hud {
     
     [hud hide:YES];
     self.linkIDSession = linkIDSession; // store for when user gets back
@@ -151,7 +119,7 @@
 
 - (void) pollLinkID:(id<LIDelegate>)delegate withImageView:(UIImageView *)imageView withHud:(MBProgressHUD *)hud completion:(void (^)(BOOL done))completionBlock {
     
-    [[LIStore get] pollLinkID:self.linkIDSession.sessionId completion:^(LISessionState *linkIDSessionState) {
+    [[LIStore get] pollLinkID:self.linkIDSession.sessionId completion:^(LinkIDSessionState *linkIDSessionState) {
         
         if (nil == linkIDSessionState) {
             
@@ -208,7 +176,7 @@
 }
 
 
-- (BOOL) linkIDLoginCompletion:(id<LIDelegate>)delegate withState:(LISessionState *)linkIDSessionState withHud:(MBProgressHUD *)hud {
+- (BOOL) linkIDLoginCompletion:(id<LIDelegate>)delegate withState:(LinkIDSessionState *)linkIDSessionState withHud:(MBProgressHUD *)hud {
     
     [delegate onLinkIDLogin:linkIDSessionState];
     return YES;

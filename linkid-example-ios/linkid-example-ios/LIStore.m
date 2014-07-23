@@ -8,7 +8,7 @@
 
 #import "LIStore.h"
 #import <RestKit/RestKit.h>
-#import "LIXCallback.h"
+#import <LinkIDXCallback.h>
 
 #define REST_URL    @"http://192.168.0.199:9090/restv1"
 
@@ -38,9 +38,9 @@
      * Configure object mappings. *
      ******************************
      */
-    RKObjectMapping *linkIDSessionMapping = [RKObjectMapping mappingForClass:[LISession class]];
+    RKObjectMapping *linkIDSessionMapping = [RKObjectMapping mappingForClass:[LinkIDSession class]];
     [linkIDSessionMapping addAttributeMappingsFromArray:@[@"sessionId", @"qrCodeImageEncoded", @"qrCodeURL", @"authenticationContext"]];
-    RKObjectMapping *linkIDSessionStateMapping = [RKObjectMapping mappingForClass:[LISessionState class]];
+    RKObjectMapping *linkIDSessionStateMapping = [RKObjectMapping mappingForClass:[LinkIDSessionState class]];
     [linkIDSessionStateMapping addAttributeMappingsFromArray:@[@"authenticationState", @"paymentState", @"paymentMenuURL"]];
     
     /*
@@ -56,9 +56,9 @@
     
 }
 
-- (void)startLinkID:(void (^)(LISession *linkIDSession))completionBlock {
+- (void)startLinkID:(void (^)(LinkIDSession *linkIDSession))completionBlock {
     
-    NSString *path = LIString(@"linkid/start?language=%@", [[NSLocale preferredLanguages] objectAtIndex:0]);
+    NSString *path = LinkIDString(@"linkid/start?language=%@", [[NSLocale preferredLanguages] objectAtIndex:0]);
     
     NSLog(@"Path: %@", path);
     
@@ -66,7 +66,7 @@
                                        success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
                                            
                                            // on success
-                                           if (completionBlock) completionBlock((LISession *)[mappingResult firstObject]);
+                                           if (completionBlock) completionBlock((LinkIDSession *)[mappingResult firstObject]);
                                            
                                        } failure:^(RKObjectRequestOperation *operation, NSError *error) {
                                            
@@ -74,14 +74,14 @@
                                        }];
 }
 
-- (void)pollLinkID:(NSString *)sessionId completion:(void (^)(LISessionState *linkIDSessionState))completionBlock {
+- (void)pollLinkID:(NSString *)sessionId completion:(void (^)(LinkIDSessionState *linkIDSessionState))completionBlock {
     
-    NSString *path = LIString(@"linkid/poll?sessionId=%@&language=%@", sessionId, [[NSLocale preferredLanguages] objectAtIndex:0]);
+    NSString *path = LinkIDString(@"linkid/poll?sessionId=%@&language=%@", sessionId, [[NSLocale preferredLanguages] objectAtIndex:0]);
     [[RKObjectManager sharedManager] getObject:nil path:path parameters:nil
                                        success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
                                            
                                            // on success
-                                           if (completionBlock) completionBlock((LISessionState *)[mappingResult firstObject]);
+                                           if (completionBlock) completionBlock((LinkIDSessionState *)[mappingResult firstObject]);
                                            
                                        } failure:^(RKObjectRequestOperation *operation, NSError *error) {
                                            

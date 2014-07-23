@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#import "LIButton.h"
+#import <LinkIDButton.h>
 #import "LIUtil.h"
 
 @interface LILinkIDViewController : UIViewController<LIDelegate>
@@ -16,8 +16,8 @@
 @property (weak, nonatomic) IBOutlet UILabel     *installInfoLabel;
 @property (weak, nonatomic) IBOutlet UILabel     *qrInfoLabel;
 
-@property (weak, nonatomic) IBOutlet LIButton    *installLogoButton;
-@property (weak, nonatomic) IBOutlet LIButton    *installButton;
+@property (weak, nonatomic) IBOutlet LinkIDButton    *installLogoButton;
+@property (weak, nonatomic) IBOutlet LinkIDButton    *installButton;
 @property (weak, nonatomic) IBOutlet UIImageView *linkIDImageView;
 @property (weak, nonatomic) IBOutlet UIButton    *otherDeviceButton;
 

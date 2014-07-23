@@ -9,6 +9,7 @@
 #import "LILinkIDViewController.h"
 #import "LIAppDelegate.h"
 #import <MBProgressHUD.h>
+#import <LinkIDUtil.h>
 
 @interface LILinkIDViewController ()
 
@@ -20,15 +21,15 @@
     
     [super viewWillAppear:animated];
     
-    self.installLogoButton.bgColor = [LIUtil linkIDGreen];
+    self.installLogoButton.bgColor = [LinkIDUtil linkIDGreen];
     self.installLogoButton.image = [UIImage imageNamed:@"linkid_icon"];
-    self.installLogoButton.buttonStyle = LIButtonStyleLogo;
+    self.installLogoButton.buttonStyle = LinkIDButtonStyleLogo;
     
-    self.installButton.bgColor = [LIUtil linkIDGreen];
-    self.installButton.buttonStyle = LIButtonStyleRight;
+    self.installButton.bgColor = [LinkIDUtil linkIDGreen];
+    self.installButton.buttonStyle = LinkIDButtonStyleRight;
     
     // if linkID installed, hide install, show QR
-    if ([LIUtil isLinkIDInstalled]) {
+    if ([LinkIDUtil isLinkIDInstalled]) {
         
         [self onOtherDevice];
         
@@ -58,7 +59,7 @@
 
 #pragma mark - IWLinkIDDelegate
 
-- (void) onLinkIDLogin:(LISessionState *)linkIDSessionState {
+- (void) onLinkIDLogin:(LinkIDSessionState *)linkIDSessionState {
     
     [self performSegueWithIdentifier:@"success" sender:self];
 }
@@ -84,7 +85,7 @@
 
 - (IBAction)onInstall:(id)sender {
     
-    [LIUtil installLinkID];
+    [LinkIDUtil installLinkID];
 }
 
 - (IBAction)onOther:(id)sender {

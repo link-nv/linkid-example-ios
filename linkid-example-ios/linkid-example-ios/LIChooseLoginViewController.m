@@ -10,6 +10,7 @@
 #import "LIAppDelegate.h"
 #import "LIProgressHUD.h"
 #import <UIActionSheet+Blocks.h>
+#import <LinkIDUtil.h>
 
 @interface LIChooseLoginViewController ()
 
@@ -19,12 +20,12 @@
 
 - (void) viewWillAppear:(BOOL)animated {
     
-    self.linkIDLogoButton.bgColor = [LIUtil linkIDGreen];
+    self.linkIDLogoButton.bgColor = [LinkIDUtil linkIDGreen];
     self.linkIDLogoButton.image = [UIImage imageNamed:@"linkid_icon"];
-    self.linkIDLogoButton.buttonStyle = LIButtonStyleLogo;
+    self.linkIDLogoButton.buttonStyle = LinkIDButtonStyleLogo;
     
-    self.linkIDButton.bgColor = [LIUtil linkIDGreen];
-    self.linkIDButton.buttonStyle = LIButtonStyleRight;
+    self.linkIDButton.bgColor = [LinkIDUtil linkIDGreen];
+    self.linkIDButton.buttonStyle = LinkIDButtonStyleRight;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(willEnterForeground) name:UIApplicationDidBecomeActiveNotification object:nil];
     
@@ -62,7 +63,7 @@
 
 #pragma mark - LIDelegate
 
-- (void) onLinkIDLogin:(LISessionState *)linkIDSessionState {
+- (void) onLinkIDLogin:(LinkIDSessionState *)linkIDSessionState {
     
     // on login
     NSLog(@"onLinkIDLogin: %@", linkIDSessionState.authenticationState);
@@ -82,7 +83,7 @@
 
 - (IBAction)onLinkID:(id)sender {
     
-    if ([LIUtil isLinkIDInstalled]) {
+    if ([LinkIDUtil isLinkIDInstalled]) {
         
         [self startLinkID];
         
@@ -95,7 +96,7 @@
 - (IBAction)onLinkIDLogo:(id)sender {
     
     // if linkID not installed, allways go to other device...
-    if (![LIUtil isLinkIDInstalled]) {
+    if (![LinkIDUtil isLinkIDInstalled]) {
         
         [self performSegueWithIdentifier:@"linkID" sender:nil];
         return;

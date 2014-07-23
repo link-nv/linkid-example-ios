@@ -7,14 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-
 #import "LIUtil.h"
-#import "LIButton.h"
+#import <LinkIDButton.h>
 
 @interface LIChooseLoginViewController : UIViewController<LIDelegate>
 
-@property (weak, nonatomic) IBOutlet LIButton  *linkIDButton;
-@property (weak, nonatomic) IBOutlet LIButton  *linkIDLogoButton;
+@property (weak, nonatomic) IBOutlet LinkIDButton  *linkIDButton;
+@property (weak, nonatomic) IBOutlet LinkIDButton  *linkIDLogoButton;
 
 - (IBAction)onLinkID:(id)sender;
 - (IBAction)onLinkIDLogo:(id)sender;

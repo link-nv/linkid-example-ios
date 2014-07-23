@@ -7,8 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "NSString+PaymentState.h"
-#import "LISessionState.h"
+#import <NSString+LinkIDPaymentState.h>
+#import <LinkIDSessionState.h>
 #import <MBProgressHUD.h>
 
 @protocol LIDelegate <NSObject>
@@ -16,7 +16,7 @@
 @required
 
 // linkID login completed successfully
-- (void) onLinkIDLogin:(LISessionState *)linkIDSessionState;
+- (void) onLinkIDLogin:(LinkIDSessionState *)linkIDSessionState;
 
 // got back, but linkID session expired and user wants to retry
 - (void) onTimeoutRetry;
@@ -30,10 +30,6 @@
 @interface LIUtil : NSObject
 
 @property (nonatomic, assign) BOOL           linkIDOtherDevice;
-
-+ (UIColor *)linkIDGreen;
-+ (void)installLinkID;
-+ (BOOL)isLinkIDInstalled;
 
 - (void) startLinkID:(MBProgressHUD *)hud;
 

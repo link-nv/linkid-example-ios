@@ -1,15 +1,15 @@
 //
-//  LISession.m
-//  linkid-example-ios
+//  LinkIDSession.m
+//  linkid-sdk-ios
 //
 //  Created by Wim Vandenhaute on 23/07/14.
 //  Copyright (c) 2014 Lin-k N.V. All rights reserved.
 //
 
-#import "LISession.h"
+#import "LinkIDSession.h"
 #import <Base64.h>
 
-@implementation LISession
+@implementation LinkIDSession
 
 - (NSData *) qrCodeImage {
     

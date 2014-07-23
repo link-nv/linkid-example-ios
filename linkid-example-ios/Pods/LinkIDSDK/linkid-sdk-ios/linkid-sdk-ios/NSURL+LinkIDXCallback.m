@@ -1,14 +1,14 @@
 //
-//  NSURL+LIXcallback.m
-//  linkid-example-ios
+//  NSURL+LinkIDXCallback.m
+//  linkid-sdk-ios
 //
 //  Created by Wim Vandenhaute on 23/07/14.
 //  Copyright (c) 2014 Lin-k N.V. All rights reserved.
 //
 
-#import "NSURL+LIXcallback.h"
+#import "NSURL+LinkIDXCallback.h"
 
-@implementation NSURL (LIXcallback)
+@implementation NSURL (LinkIDXCallback)
 
 - (NSURL *) URLByAppendingQueryString:(NSString *)queryString {
     if (![queryString length]) {
@@ -20,15 +20,15 @@
     return [NSURL URLWithString:URLString];
 }
 
-- (NSURL *) URLByAppendingXCallback:(LIXCallback *)xCallback {
+- (NSURL *) URLByAppendingXCallback:(LinkIDXCallback *)xCallback {
     
-    NSURL *callbackUrl = [self URLByAppendingQueryString:LIString(@"%@=%@", X_CB_SOURCE, [self encodeURL:xCallback.xSource])];
+    NSURL *callbackUrl = [self URLByAppendingQueryString:LinkIDString(@"%@=%@", LINKID_X_CB_SOURCE, [self encodeURL:xCallback.xSource])];
     if (nil != xCallback.xSuccess)
-        callbackUrl = [callbackUrl URLByAppendingQueryString:LIString(@"%@=%@", X_CB_SUCCESS, [self encodeURL:xCallback.xSuccess])];
+        callbackUrl = [callbackUrl URLByAppendingQueryString:LinkIDString(@"%@=%@", LINKID_X_CB_SUCCESS, [self encodeURL:xCallback.xSuccess])];
     if (nil != xCallback.xError)
-        callbackUrl = [callbackUrl URLByAppendingQueryString:LIString(@"%@=%@", X_CB_ERROR, [self encodeURL:xCallback.xError])];
+        callbackUrl = [callbackUrl URLByAppendingQueryString:LinkIDString(@"%@=%@", LINKID_X_CB_ERROR, [self encodeURL:xCallback.xError])];
     if (nil != xCallback.xCancel)
-        callbackUrl = [callbackUrl URLByAppendingQueryString:LIString(@"%@=%@", X_CB_CANCEL, [self encodeURL:xCallback.xCancel])];
+        callbackUrl = [callbackUrl URLByAppendingQueryString:LinkIDString(@"%@=%@", LINKID_X_CB_CANCEL, [self encodeURL:xCallback.xCancel])];
     return callbackUrl;
 }
 
@@ -38,6 +38,5 @@
                                                                                  CFSTR(":/?#[]@!$ &'()*+,;=\"<>%{}|\\^~`"),
                                                                                  kCFStringEncodingUTF8 );
 }
-
 
 @end

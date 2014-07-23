@@ -1,14 +1,14 @@
 //
-//  LIXCallback.m
-//  linkid-example-ios
+//  LinkIDXCallback.m
+//  linkid-sdk-ios
 //
 //  Created by Wim Vandenhaute on 23/07/14.
 //  Copyright (c) 2014 Lin-k N.V. All rights reserved.
 //
 
-#import "LIXCallback.h"
+#import "LinkIDXCallback.h"
 
-@implementation LIXCallback
+@implementation LinkIDXCallback
 
 -(id) initWithSource:(NSString *)xSource withSuccess:(NSString *)xSuccess withError:(NSString *)xError withCancel:(NSString *)xCancel {
     
@@ -39,7 +39,7 @@
 
 - (NSString *)description {
     
-    return LIString(@"x-source=%@, x-success=%@, x-error=%@, x-cancel=%@", self.xSource, self.xSuccess, self.xError, self.xCancel);
+    return LinkIDString(@"x-source=%@, x-success=%@, x-error=%@, x-cancel=%@", self.xSource, self.xSuccess, self.xError, self.xCancel);
 }
 
 - (NSMutableDictionary *) parseQueryString:(NSString *)queryString {
@@ -56,7 +56,7 @@
     return queryStringDictionary;
 }
 
-NSString *LIString(NSString *format, ...) {
+NSString *LinkIDString(NSString *format, ...) {
     
     va_list argList;
     va_start(argList, format);

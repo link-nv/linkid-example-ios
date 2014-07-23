@@ -1,14 +1,14 @@
 //
-//  LIButton.m
-//  linkid-example-ios
+//  LinkIDButton.m
+//  linkid-sdk-ios
 //
 //  Created by Wim Vandenhaute on 23/07/14.
 //  Copyright (c) 2014 Lin-k N.V. All rights reserved.
 //
 
-#import "LIButton.h"
+#import "LinkIDButton.h"
 
-@implementation LIButton
+@implementation LinkIDButton
 
 @synthesize buttonStyle = _buttonStyle;
 
@@ -17,7 +17,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-        self.buttonStyle = LIButtonStyleMain;
+        self.buttonStyle = LinkIDButtonStyleMain;
     }
     return self;
 }
@@ -79,25 +79,34 @@
     return newImage;
 }
 
-- (void) setButtonStyle:(LIButtonStyle)buttonStyle {
+- (void) setButtonStyle:(LinkIDButtonStyle)buttonStyle {
     
     _buttonStyle = buttonStyle;
     
     switch (buttonStyle) {
             
-        case LIButtonStyleLogo:
+        case LinkIDButtonStyleBack:
+            [self configureBack];
+            break;
+        case LinkIDButtonStyleLogo:
             [self configureLogo];
             break;
-        case LIButtonStyleRight:
+        case LinkIDButtonStyleRight:
             [self configureRight];
             break;
-        case LIButtonStyleMain:
+        case LinkIDButtonStyleMain:
             [self configureMain];
             break;
     }
     
     // font
     [self.titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Thin" size:22]];
+}
+
+- (void) configureBack {
+    
+    self.image = [UIImage imageNamed:@"arrowBack"];
+    [self configureMain];
 }
 
 - (void) configureLogo {
@@ -110,14 +119,14 @@
         [self setImage:[self imageByApplyingAlpha:0.2 forImage:self.image] forState:UIControlStateHighlighted];
     }
     
-    [self configureButton:LIButtonBorderRoundedLeft];
+    [self configureButton:LinkIDButtonBorderRoundedLeft];
 }
 
 - (void) configureRight {
     
     self.titleEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0);
     
-    [self configureButton:LIButtonBorderRoundedRight];
+    [self configureButton:LinkIDButtonBorderRoundedRight];
 }
 
 - (void) configureMain {
@@ -130,16 +139,16 @@
         [self setImage:[self imageByApplyingAlpha:0.2 forImage:self.image] forState:UIControlStateHighlighted];
     }
     
-    [self configureButton:LIButtonBorderRounded];
+    [self configureButton:LinkIDButtonBorderRounded];
 }
 
-- (void) configureButton:(LIButtonBorderStyle)borderStyle {
+- (void) configureButton:(LinkIDButtonBorderStyle)borderStyle {
     
     self.borderStyle = borderStyle;
     
     // button + bg
     CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
-    CGContextRef context = CGBitmapContextCreate(NULL, (size_t)self.frame.size.width, (size_t)self.frame.size.height, 8, (size_t)(4 * self.frame.size.width), colorSpace, kCGImageAlphaPremultipliedFirst);
+    CGContextRef context = CGBitmapContextCreate(NULL, (size_t)self.frame.size.width, (size_t)self.frame.size.height, 8, (size_t)(4 * self.frame.size.width), colorSpace, (CGBitmapInfo)kCGImageAlphaPremultipliedFirst);
     
     CGImageRef imageMasked = CGBitmapContextCreateImage(context);
     CGContextRelease(context);
@@ -185,14 +194,14 @@
     
 }
 
-- (UIRectCorner) getCornersFor:(LIButtonBorderStyle) borderStyle {
+- (UIRectCorner) getCornersFor:(LinkIDButtonBorderStyle) borderStyle {
     
     switch (borderStyle) {
-        case LIButtonBorderRounded:
+        case LinkIDButtonBorderRounded:
             return UIRectCornerAllCorners;
-        case LIButtonBorderRoundedLeft:
+        case LinkIDButtonBorderRoundedLeft:
             return UIRectCornerTopLeft|UIRectCornerBottomLeft;
-        case LIButtonBorderRoundedRight:
+        case LinkIDButtonBorderRoundedRight:
             return UIRectCornerTopRight|UIRectCornerBottomRight;
     }
 }
@@ -209,4 +218,3 @@
 }
 
 @end
-

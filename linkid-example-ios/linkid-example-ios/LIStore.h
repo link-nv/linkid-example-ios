@@ -8,15 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
-#import "LISession.h"
-#import "LISessionState.h"
+#import <LinkIDSession.h>
+#import <LinkIDSessionState.h>
 
 @interface LIStore : NSObject
 
 + (LIStore *)get;
 
-- (void)startLinkID:(void (^)(LISession *linkIDSession))completionBlock;
-- (void)pollLinkID:(NSString *)sessionId completion:(void (^)(LISessionState *linkIDSessionState))completionBlock;
+- (void)startLinkID:(void (^)(LinkIDSession *linkIDSession))completionBlock;
+- (void)pollLinkID:(NSString *)sessionId completion:(void (^)(LinkIDSessionState *linkIDSessionState))completionBlock;
 
 
 @end

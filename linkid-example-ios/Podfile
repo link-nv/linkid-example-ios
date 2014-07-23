@@ -1,6 +1,7 @@
 platform :ios, '6.0'
 
+pod 'LinkIDSDK', :git => 'https://github.com/link-nv/linkid-sdk-ios.git'
+
 pod 'MBProgressHUD',         '~> 0.8'
 pod "RestKit",               '~>0.20.3'
-pod "Base64nl",              '~>1.2'
 pod 'UIActionSheet+Blocks',  '~>0.8'
