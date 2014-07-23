@@ -24,19 +24,15 @@ PODS:
   - UIActionSheet+Blocks (0.8.1)
 
 DEPENDENCIES:
-  - LinkIDSDK (from `https://github.com/link-nv/linkid-sdk-ios.git`)
+  - LinkIDSDK (~> 0.0.1)
   - MBProgressHUD (~> 0.8)
   - RestKit (~> 0.20.3)
   - UIActionSheet+Blocks (~> 0.8)
 
-EXTERNAL SOURCES:
-  LinkIDSDK:
-    :git: https://github.com/link-nv/linkid-sdk-ios.git
-
 SPEC CHECKSUMS:
   AFNetworking: 80c4e0652b08eb34e25b9c0ff3c82556fe5967b4
   Base64nl: 98b890ea8e2131561ea6aa0f2039ef82c35d47bf
-  LinkIDSDK: 962bdb7b274572e4a0f0c4b6de4fa0a86cf2aa6f
+  LinkIDSDK: 86b0bcfc3a9635e049f7acd15c5eaf2f8d2a3506
   MBProgressHUD: c356980b0cd097f19acec959b49dca5eb8ec31be
   RestKit: 7f9490e709ee745e166c4d2aa7a8d132831275b0
   SOCKit: d8d0dd3688ae1026c12367570da8fa8e1a6980fb
