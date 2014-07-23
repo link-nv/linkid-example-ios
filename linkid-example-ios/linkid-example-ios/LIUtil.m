@@ -35,6 +35,7 @@
     self.linkIDSession = nil;
     self.linkIDOtherDevice = NO;
     
+    // start a new linkID session
     [[LIStore get] startLinkID:^(LinkIDSession *linkIDSession) {
         
         [self handleLinkIDSessionStart:linkIDSession withHud:hud];
@@ -46,6 +47,7 @@
     [hud hide:YES];
     self.linkIDSession = linkIDSession; // store for when user gets back
     
+    // start the linkID app with callback params for returning back
     [LinkIDUtil startLinkID:self.linkIDSession.qrCodeURL withSource:@"linkID example" withScheme:LI_SCHEME withSuccess:LI_CB_SUCCESS withError:LI_CB_ERROR withCancel:LI_CB_CANCEL];
 }
 

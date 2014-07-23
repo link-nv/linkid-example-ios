@@ -59,9 +59,7 @@
 - (void)startLinkID:(void (^)(LinkIDSession *linkIDSession))completionBlock {
     
     NSString *path = LinkIDString(@"linkid/start?language=%@", [[NSLocale preferredLanguages] objectAtIndex:0]);
-    
-    NSLog(@"Path: %@", path);
-    
+        
     [[RKObjectManager sharedManager] getObject:nil path:path parameters:nil
                                        success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
                                            
