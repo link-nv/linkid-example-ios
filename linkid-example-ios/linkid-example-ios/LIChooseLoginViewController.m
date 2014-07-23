@@ -52,7 +52,7 @@
             return;
         case CBStatusSucess: {
             
-            LIProgressHUD *hud = [LIProgressHUD showIWHUDAddedTo:self.view animated:YES withText:@"Completing"];
+            LIProgressHUD *hud = [LIProgressHUD showIWHUDAddedTo:self.view animated:YES withText:@"Completing..."];
             
             [[LIAppDelegate get].linkIDUtil pollLinkID:self withHud:hud];
             break;
@@ -66,6 +66,7 @@
     
     // on login
     NSLog(@"onLinkIDLogin: %@", linkIDSessionState.authenticationState);
+    [self performSegueWithIdentifier:@"success" sender:self];
 }
 
 - (void) onTimeoutRetry {
@@ -130,7 +131,7 @@
 
 - (void) startLinkID {
     
-    LIProgressHUD *hud = [LIProgressHUD showIWHUDAddedTo:self.view animated:YES withText:@"loading"];
+    LIProgressHUD *hud = [LIProgressHUD showIWHUDAddedTo:self.view animated:YES withText:@"Loading..."];
     
     [[LIAppDelegate get].linkIDUtil startLinkID:hud];
     

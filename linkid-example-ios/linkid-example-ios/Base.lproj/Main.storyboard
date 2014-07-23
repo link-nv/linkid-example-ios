@@ -40,11 +40,95 @@
                     <connections>
                         <outlet property="linkIDButton" destination="V3g-L5-k4n" id="fhA-Ut-t13"/>
                         <outlet property="linkIDLogoButton" destination="9W7-hn-Y2Y" id="3sp-zU-MyV"/>
+                        <segue destination="YvF-hK-hp9" kind="push" identifier="success" id="60V-bD-wzo"/>
+                        <segue destination="znm-I2-nn8" kind="push" identifier="linkID" id="cpV-23-PBo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="697" y="41"/>
+        </scene>
+        <!--LinkID View Controller-->
+        <scene sceneID="REf-ik-RVu">
+            <objects>
+                <viewController id="znm-I2-nn8" customClass="LILinkIDViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Vlh-NZ-zM9">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="bHb-Wh-jH5" customClass="LIButton">
+                                <rect key="frame" x="20" y="263" width="41" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="linkid_icon.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onInstall:" destination="znm-I2-nn8" eventType="touchUpInside" id="Zmh-Mu-npZ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ZfU-xx-WOp" customClass="LIButton">
+                                <rect key="frame" x="69" y="263" width="231" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Install linkID">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onInstall:" destination="znm-I2-nn8" eventType="touchUpInside" id="rFF-FN-ktt"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="TXe-Cc-xYT">
+                                <rect key="frame" x="40" y="182" width="240" height="203"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ork-IK-Z8Q">
+                                <rect key="frame" x="39" y="518" width="242" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="linkID is installed on another device">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onOther:" destination="znm-I2-nn8" eventType="touchUpInside" id="jqY-6j-wUK"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="37I-6Z-bPo"/>
+                    <connections>
+                        <outlet property="installButton" destination="ZfU-xx-WOp" id="8aH-gb-KEi"/>
+                        <outlet property="installLogoButton" destination="bHb-Wh-jH5" id="al4-ez-5Uq"/>
+                        <outlet property="linkIDImageView" destination="TXe-Cc-xYT" id="PNA-Ru-YIn"/>
+                        <outlet property="otherDeviceButton" destination="ork-IK-Z8Q" id="mi9-Xp-b9u"/>
+                        <segue destination="YvF-hK-hp9" kind="push" identifier="success" id="ioN-1c-Yza"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RcL-pu-IHv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1239" y="-659"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Md5-YW-gbA">
+            <objects>
+                <viewController id="YvF-hK-hp9" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="BE2-cZ-3kV">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Succes! You are logged in with linkID" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lTC-n5-3qk">
+                                <rect key="frame" x="19" y="273" width="283" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="GsU-eR-uxX"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fgu-Gc-QMz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1781" y="41"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="9Xg-kS-ver">
@@ -74,4 +158,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="ioN-1c-Yza"/>
+    </inferredMetricsTieBreakers>
 </document>

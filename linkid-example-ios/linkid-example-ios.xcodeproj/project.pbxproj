@@ -29,6 +29,7 @@
 		F7D38861197FA81A0041AB52 /* LIXCallback.m in Sources */ = {isa = PBXBuildFile; fileRef = F7D38860197FA81A0041AB52 /* LIXCallback.m */; };
 		F7D38864197FAACC0041AB52 /* NSURL+LIXcallback.m in Sources */ = {isa = PBXBuildFile; fileRef = F7D38863197FAACC0041AB52 /* NSURL+LIXcallback.m */; };
 		F7D38867197FAE890041AB52 /* LIProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = F7D38866197FAE890041AB52 /* LIProgressHUD.m */; };
+		F7D3886A197FCDAB0041AB52 /* LILinkIDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7D38869197FCDAB0041AB52 /* LILinkIDViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +72,8 @@
 		F7D38863197FAACC0041AB52 /* NSURL+LIXcallback.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+LIXcallback.m"; sourceTree = "<group>"; };
 		F7D38865197FAE890041AB52 /* LIProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LIProgressHUD.h; sourceTree = "<group>"; };
 		F7D38866197FAE890041AB52 /* LIProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LIProgressHUD.m; sourceTree = "<group>"; };
+		F7D38868197FCDAB0041AB52 /* LILinkIDViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LILinkIDViewController.h; sourceTree = "<group>"; };
+		F7D38869197FCDAB0041AB52 /* LILinkIDViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LILinkIDViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +188,8 @@
 			children = (
 				F7D3884D197FA40A0041AB52 /* LIChooseLoginViewController.h */,
 				F7D3884E197FA40A0041AB52 /* LIChooseLoginViewController.m */,
+				F7D38868197FCDAB0041AB52 /* LILinkIDViewController.h */,
+				F7D38869197FCDAB0041AB52 /* LILinkIDViewController.m */,
 			);
 			name = views;
 			sourceTree = "<group>";
@@ -296,6 +301,7 @@
 				F7D38855197FA47F0041AB52 /* LISessionState.m in Sources */,
 				F7D3885E197FA7330041AB52 /* LIStore.m in Sources */,
 				F7D3881F197FA0B30041AB52 /* LIAppDelegate.m in Sources */,
+				F7D3886A197FCDAB0041AB52 /* LILinkIDViewController.m in Sources */,
 				F7D38867197FAE890041AB52 /* LIProgressHUD.m in Sources */,
 				F7D38852197FA4280041AB52 /* LIUtil.m in Sources */,
 				F7D38861197FA81A0041AB52 /* LIXCallback.m in Sources */,
