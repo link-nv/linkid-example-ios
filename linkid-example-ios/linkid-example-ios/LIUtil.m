@@ -210,7 +210,7 @@
 
 - (BOOL) linkIDLoginCompletion:(id<LIDelegate>)delegate withState:(LISessionState *)linkIDSessionState withHud:(MBProgressHUD *)hud {
     
-    // ...
+    [delegate onLinkIDLogin:linkIDSessionState];
     return YES;
 }
 

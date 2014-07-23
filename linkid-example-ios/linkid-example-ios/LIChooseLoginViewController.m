@@ -26,7 +26,16 @@
     self.linkIDButton.bgColor = [LIUtil linkIDGreen];
     self.linkIDButton.buttonStyle = LIButtonStyleRight;
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(willEnterForeground) name:UIApplicationDidBecomeActiveNotification object:nil];
+    
     [super viewWillAppear:animated];
+}
+
+- (void) viewWillDisappear:(BOOL)animated {
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
+    [super viewWillDisappear:animated];
 }
 
 - (void) willEnterForeground {
@@ -56,6 +65,7 @@
 - (void) onLinkIDLogin:(LISessionState *)linkIDSessionState {
     
     // on login
+    NSLog(@"onLinkIDLogin: %@", linkIDSessionState.authenticationState);
 }
 
 - (void) onTimeoutRetry {

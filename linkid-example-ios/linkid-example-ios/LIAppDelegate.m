@@ -18,7 +18,7 @@
 
 + (void)initialize {
     
-    RKLogConfigureByName("RestKit*", RKLogLevelTrace);
+    RKLogConfigureByName("RestKit*", RKLogLevelWarning);
 }
 
 
@@ -33,6 +33,24 @@
     
     return YES;
 }
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    
+    if ([url.scheme isEqualToString:LI_SCHEME]) {
+        
+        self.cbStatus = CBStatusError;
+        if ([url.host isEqualToString:LI_CB_SUCCESS]) {
+            self.cbStatus = CBStatusSucess;
+        } else if ([url.host isEqualToString:LI_CB_CANCEL]) {
+            self.cbStatus = CBStatusCancel;
+        } else if ([url.host isEqualToString:LI_CB_ERROR]) {
+            self.cbStatus = CBStatusError;
+        }
+    }
+    
+    return YES;
+}
+
 							
 - (void)applicationWillResignActive:(UIApplication *)application
 {
