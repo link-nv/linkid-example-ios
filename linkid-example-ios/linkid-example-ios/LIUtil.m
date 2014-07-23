@@ -70,7 +70,7 @@
     self.linkIDSession = linkIDSession; // store for when user gets back
     
     // add x-callback parameters
-    LIXCallback *xCallback = [[LIXCallback alloc] initWithSource:@"iWish.be"
+    LIXCallback *xCallback = [[LIXCallback alloc] initWithSource:@"linkID example"
                                                      withSuccess:LIString(@"%@://%@", LI_SCHEME, LI_CB_SUCCESS)
                                                        withError:LIString(@"%@://%@", LI_SCHEME, LI_CB_ERROR)
                                                       withCancel:LIString(@"%@://%@", LI_SCHEME, LI_CB_CANCEL)];

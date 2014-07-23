@@ -7,6 +7,7 @@
 //
 
 #import "LIAppDelegate.h"
+#import <RestKit.h>
 
 @implementation LIAppDelegate
 
@@ -15,9 +16,21 @@
     return (LIAppDelegate *) [UIApplication sharedApplication].delegate;
 }
 
++ (void)initialize {
+    
+    RKLogConfigureByName("RestKit*", RKLogLevelTrace);
+}
+
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+
+    // Init CBStatus
+    self.cbStatus = CBStatusNone;
+    
+    // init linkID util
+    self.linkIDUtil = [[LIUtil alloc] init];
+    
     return YES;
 }
 							

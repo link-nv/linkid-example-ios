@@ -7,6 +7,10 @@
 //
 
 #import "LIStore.h"
+#import <RestKit/RestKit.h>
+#import "LIXCallback.h"
+
+#define REST_URL    @"http://192.168.0.199:9090/restv1"
 
 @implementation LIStore
 
@@ -19,59 +23,71 @@
     return instance;
 }
 
+- (id)init {
+    
+    if (!(self = [super init]))
+        return nil;
+    
+    // Initialize the object manager.
+    RKObjectManager *objectManager = [RKObjectManager managerWithBaseURL:[NSURL URLWithString:REST_URL]];
+    
+    objectManager.requestSerializationMIMEType = RKMIMETypeJSON;
+    
+    /*
+     ******************************
+     * Configure object mappings. *
+     ******************************
+     */
+    RKObjectMapping *linkIDSessionMapping = [RKObjectMapping mappingForClass:[LISession class]];
+    [linkIDSessionMapping addAttributeMappingsFromArray:@[@"sessionId", @"qrCodeImageEncoded", @"qrCodeURL", @"authenticationContext"]];
+    RKObjectMapping *linkIDSessionStateMapping = [RKObjectMapping mappingForClass:[LISessionState class]];
+    [linkIDSessionStateMapping addAttributeMappingsFromArray:@[@"authenticationState", @"paymentState", @"paymentMenuURL"]];
+    
+    /*
+     * Request/Response descriptors
+     */
+    [objectManager addResponseDescriptor:[RKResponseDescriptor responseDescriptorWithMapping:linkIDSessionMapping method:RKRequestMethodAny pathPattern:@"linkid/start"
+                                                                                     keyPath:nil statusCodes:nil]];
+
+    [objectManager addResponseDescriptor:[RKResponseDescriptor responseDescriptorWithMapping:linkIDSessionStateMapping method:RKRequestMethodAny pathPattern:@"linkid/poll"
+                                                                                     keyPath:nil statusCodes:nil]];
+    
+    return self;
+    
+}
+
 - (void)startLinkID:(void (^)(LISession *linkIDSession))completionBlock {
     
-//    NSString *path = PearlString(@"linkid/start?language=%@", [[NSLocale preferredLanguages] objectAtIndex:0]);
-//    [[RKObjectManager sharedManager] getObject:nil path:path parameters:nil
-//                                       success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
-//                                           
-//                                           // on success
-//                                           if (completionBlock) completionBlock((LinkIDSession *)[mappingResult firstObject]);
-//                                           
-//                                       } failure:^(RKObjectRequestOperation *operation, NSError *error) {
-//                                           
-//                                           // on failure
-//                                           err(@"didFailWithError: %@", error);
-//                                           [IWConnectionUtils errorResponseTryAgain:error tryAgain:^(BOOL tryAgain) {
-//                                               if (tryAgain) {
-//                                                   
-//                                                   [self startLinkID:^(LinkIDSession *linkIDSession) {
-//                                                       if (completionBlock) completionBlock(linkIDSession);
-//                                                   }];
-//                                                   
-//                                               } else if (completionBlock) {
-//                                                   completionBlock(nil);
-//                                               }
-//                                           }];
-//                                       }];
+    NSString *path = LIString(@"linkid/start?language=%@", [[NSLocale preferredLanguages] objectAtIndex:0]);
+    
+    NSLog(@"Path: %@", path);
+    
+    [[RKObjectManager sharedManager] getObject:nil path:path parameters:nil
+                                       success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+                                           
+                                           // on success
+                                           if (completionBlock) completionBlock((LISession *)[mappingResult firstObject]);
+                                           
+                                       } failure:^(RKObjectRequestOperation *operation, NSError *error) {
+                                           
+                                           // on failure
+                                       }];
 }
 
 - (void)pollLinkID:(NSString *)sessionId completion:(void (^)(LISessionState *linkIDSessionState))completionBlock {
     
-//    NSString *path = PearlString(@"linkid/poll?sessionId=%@&language=%@", sessionId, [[NSLocale preferredLanguages] objectAtIndex:0]);
-//    [[RKObjectManager sharedManager] getObject:nil path:path parameters:nil
-//                                       success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
-//                                           
-//                                           // on success
-//                                           if (completionBlock) completionBlock((LinkIDSessionState *)[mappingResult firstObject]);
-//                                           
-//                                       } failure:^(RKObjectRequestOperation *operation, NSError *error) {
-//                                           
-//                                           // on failure
-//                                           err(@"didFailWithError: %@", error);
-//                                           [IWConnectionUtils errorResponseTryAgain:error tryAgain:^(BOOL tryAgain) {
-//                                               if (tryAgain) {
-//                                                   
-//                                                   [self pollLinkID:sessionId completion:^(LinkIDSessionState *linkIDSessionState) {
-//                                                       if (completionBlock) completionBlock(linkIDSessionState);
-//                                                   }];
-//                                                   
-//                                               } else if (completionBlock) {
-//                                                   completionBlock(nil);
-//                                               }
-//                                           }];
-//                                       }];
-//    
+    NSString *path = LIString(@"linkid/poll?sessionId=%@&language=%@", sessionId, [[NSLocale preferredLanguages] objectAtIndex:0]);
+    [[RKObjectManager sharedManager] getObject:nil path:path parameters:nil
+                                       success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+                                           
+                                           // on success
+                                           if (completionBlock) completionBlock((LISessionState *)[mappingResult firstObject]);
+                                           
+                                       } failure:^(RKObjectRequestOperation *operation, NSError *error) {
+                                           
+                                           // on failure
+                                       }];
+    
 }
 
 
