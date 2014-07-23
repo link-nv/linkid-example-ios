@@ -11,9 +11,7 @@ Once you have this webapp up and running, change the REST path in **LIStore.m** 
 #define REST_URL    @"http://192.168.0.199:9090/restv1"
 ```
 
-The example REST webapp and iOS example app are configured to work with the linkID demo server ( https://demo.linkid.be )
+**NOTE** that the example REST webapp and so by consequence the iOS example app are configured to talk to the [demo linkID environment](https://demo.linkid.be)
+The linkID for mobile iOS production app in the appstore **cannot** be used with this environment. You will need a demo linkID iOS app for this.
 
-The linkID production iOS app will **NOT** work with this so you will need to contact someone from the linkID development team to request access to the demo linkID iOS app.
-
-Once you have done this, you are ready to use this iOS example.
-
+Contact someone from the linkID development team to get access to this client which is distributed via [Testflight](http://testflightapp.com)
