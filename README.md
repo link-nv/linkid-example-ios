@@ -18,3 +18,4 @@ Contact someone from the linkID development team to get access to this client wh
 
 ## Sequence diagram
 
+![Sequence diagram](https://raw.githubusercontent.com/link-nv/linkid-example-ios/master/ios-linkid-flow.png)
