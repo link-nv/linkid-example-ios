@@ -15,3 +15,6 @@ Once you have this webapp up and running, change the REST path in **LIStore.m** 
 The linkID for mobile iOS production app in the appstore **cannot** be used with this environment. You will need a demo linkID iOS app for this.
 
 Contact someone from the linkID development team to get access to this client which is distributed via [Testflight](http://testflightapp.com)
+
+## Sequence diagram
+

@@ -10,7 +10,7 @@
 #import <RestKit/RestKit.h>
 #import <LinkIDXCallback.h>
 
-#define REST_URL    @"http://192.168.0.199:9090/restv1"
+#define REST_URL    @"http://192.168.5.14:9090/restv1"
 
 @implementation LIStore
 
