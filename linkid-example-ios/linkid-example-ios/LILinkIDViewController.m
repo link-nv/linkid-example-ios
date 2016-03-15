@@ -59,7 +59,7 @@
 
 #pragma mark - IWLinkIDDelegate
 
-- (void) onLinkIDLogin:(LinkIDSessionState *)linkIDSessionState {
+- (void) onLinkIDLogin:(LinkIDAuthPollResponse *)authPollResponse {
     
     [self performSegueWithIdentifier:@"success" sender:self];
 }

@@ -7,7 +7,7 @@
 //
 
 #import "LIAppDelegate.h"
-#import <RestKit.h>
+#import <LinkIDWSController.h>
 
 @implementation LIAppDelegate
 
@@ -18,7 +18,6 @@
 
 + (void)initialize {
     
-    RKLogConfigureByName("RestKit*", RKLogLevelWarning);
 }
 
 
@@ -30,6 +29,9 @@
     
     // init linkID util
     self.linkIDUtil = [[LIUtil alloc] init];
+    
+    // init linkID WS Controller
+    [LinkIDWSController initialize:@"https://192.168.5.14:8443/linkid"];
     
     return YES;
 }

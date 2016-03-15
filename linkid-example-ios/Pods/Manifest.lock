@@ -20,22 +20,22 @@ PODS:
   - AFNetworking/UIKit (2.5.2):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - LinkIDSDK (1.0.0):
+  - LinkIDSDK (1.0.1):
     - AFNetworking (= 2.5.2)
   - MBProgressHUD (0.9.2)
   - UIActionSheet+Blocks (0.9)
 
 DEPENDENCIES:
-  - LinkIDSDK (= 1.0.0)
+  - LinkIDSDK (= 1.0.1)
   - MBProgressHUD (= 0.9.2)
   - UIActionSheet+Blocks (= 0.9)
 
 SPEC CHECKSUMS:
   AFNetworking: fefbce9660acb17f48ae0011292d4da0f457bf36
-  LinkIDSDK: 180e8061380c06477916da9e19bff0dfd0edba74
+  LinkIDSDK: 969ec79d42cf7cebcdaff364270cfdc9e5d715e7
   MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
   UIActionSheet+Blocks: e180b7dad0a721ab7f212ac9742af799008bb358
 
-PODFILE CHECKSUM: 02fbe6bb140f57fc3206ae20ced6b9ec28782fc9
+PODFILE CHECKSUM: e0e328427a4313a4012b01ab467b8f01b11d578a
 
 COCOAPODS: 1.0.0.beta.2

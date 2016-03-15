@@ -7,8 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <NSString+LinkIDPaymentState.h>
-#import <LinkIDSessionState.h>
+#import <LinkIDWSController.h>
 #import <MBProgressHUD.h>
 
 @protocol LIDelegate <NSObject>
@@ -16,7 +15,7 @@
 @required
 
 // linkID login completed successfully
-- (void) onLinkIDLogin:(LinkIDSessionState *)linkIDSessionState;
+- (void) onLinkIDLogin:(LinkIDAuthPollResponse *)authPollResponse;
 
 // got back, but linkID session expired and user wants to retry
 - (void) onTimeoutRetry;

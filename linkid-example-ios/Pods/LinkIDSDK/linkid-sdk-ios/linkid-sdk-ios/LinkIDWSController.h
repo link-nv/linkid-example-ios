@@ -13,7 +13,8 @@
 
 @interface LinkIDWSController : NSObject
 
-+ (LinkIDWSController *)get:(NSString *)restBaseURL;
++ (void) initialize:(NSString *)restBaseURL;
++ (LinkIDWSController *)get;
 
 - (void) authStart:(NSString *)language
         completion:(void (^)(LinkIDAuthSession *authSession, NSError *error))completion;

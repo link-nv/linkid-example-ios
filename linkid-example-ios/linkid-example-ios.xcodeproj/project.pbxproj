@@ -18,7 +18,6 @@
 		F7D38827197FA0B30041AB52 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7D38826197FA0B30041AB52 /* Images.xcassets */; };
 		F7D3884F197FA40A0041AB52 /* LIChooseLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7D3884E197FA40A0041AB52 /* LIChooseLoginViewController.m */; };
 		F7D38852197FA4280041AB52 /* LIUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = F7D38851197FA4280041AB52 /* LIUtil.m */; };
-		F7D3885E197FA7330041AB52 /* LIStore.m in Sources */ = {isa = PBXBuildFile; fileRef = F7D3885D197FA7330041AB52 /* LIStore.m */; };
 		F7D38867197FAE890041AB52 /* LIProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = F7D38866197FAE890041AB52 /* LIProgressHUD.m */; };
 		F7D3886A197FCDAB0041AB52 /* LILinkIDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7D38869197FCDAB0041AB52 /* LILinkIDViewController.m */; };
 /* End PBXBuildFile section */
@@ -44,8 +43,6 @@
 		F7D3884E197FA40A0041AB52 /* LIChooseLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LIChooseLoginViewController.m; sourceTree = "<group>"; };
 		F7D38850197FA4280041AB52 /* LIUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LIUtil.h; sourceTree = "<group>"; };
 		F7D38851197FA4280041AB52 /* LIUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LIUtil.m; sourceTree = "<group>"; };
-		F7D3885C197FA7330041AB52 /* LIStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LIStore.h; sourceTree = "<group>"; };
-		F7D3885D197FA7330041AB52 /* LIStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LIStore.m; sourceTree = "<group>"; };
 		F7D38865197FAE890041AB52 /* LIProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LIProgressHUD.h; sourceTree = "<group>"; };
 		F7D38866197FAE890041AB52 /* LIProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LIProgressHUD.m; sourceTree = "<group>"; };
 		F7D38868197FCDAB0041AB52 /* LILinkIDViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LILinkIDViewController.h; sourceTree = "<group>"; };
@@ -136,8 +133,6 @@
 			children = (
 				F7D38850197FA4280041AB52 /* LIUtil.h */,
 				F7D38851197FA4280041AB52 /* LIUtil.m */,
-				F7D3885C197FA7330041AB52 /* LIStore.h */,
-				F7D3885D197FA7330041AB52 /* LIStore.m */,
 				F7D38865197FAE890041AB52 /* LIProgressHUD.h */,
 				F7D38866197FAE890041AB52 /* LIProgressHUD.m */,
 			);
@@ -273,7 +268,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F7D3881B197FA0B30041AB52 /* main.m in Sources */,
-				F7D3885E197FA7330041AB52 /* LIStore.m in Sources */,
 				F7D3881F197FA0B30041AB52 /* LIAppDelegate.m in Sources */,
 				F7D3886A197FCDAB0041AB52 /* LILinkIDViewController.m in Sources */,
 				F7D38867197FAE890041AB52 /* LIProgressHUD.m in Sources */,

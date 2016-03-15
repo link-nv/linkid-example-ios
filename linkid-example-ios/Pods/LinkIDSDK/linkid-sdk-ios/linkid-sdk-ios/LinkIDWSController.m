@@ -17,16 +17,24 @@
 
 @implementation LinkIDWSController
 
+static LinkIDWSController *wsInstance;
+
 #pragma mark - Instance
 
-+ (LinkIDWSController *)get:(NSString *)restBaseURL {
-    
-    static LinkIDWSController *wsInstance;
++ (void) initialize:(NSString *)restBaseURL {
+
     if (!wsInstance) {
         wsInstance = [self new];
     }
     wsInstance.restBaseURL = restBaseURL;
+
+}
+
++ (LinkIDWSController *)get {
     
+    if (!wsInstance) {
+        [NSException raise:@"LinkIDWSController.not.initialized" format:@"LinkIDWSController needs to be initialized first!"];
+    }
     return wsInstance;
 }
 

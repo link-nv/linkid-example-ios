@@ -63,10 +63,10 @@
 
 #pragma mark - LIDelegate
 
-- (void) onLinkIDLogin:(LinkIDSessionState *)linkIDSessionState {
+- (void) onLinkIDLogin:(LinkIDAuthPollResponse *)authPollResponse; {
     
     // on login
-    NSLog(@"onLinkIDLogin: %@", linkIDSessionState.authenticationState);
+    NSLog(@"onLinkIDLogin: %u", authPollResponse.authenticationState);
     [self performSegueWithIdentifier:@"success" sender:self];
 }
 
@@ -102,7 +102,7 @@
         return;
     }
     
-    // show action sheet
+    // show action sheet to select linkID on this or other device
     [UIActionSheet showFromRect:self.linkIDLogoButton.frame
                          inView:self.view
                        animated:YES
