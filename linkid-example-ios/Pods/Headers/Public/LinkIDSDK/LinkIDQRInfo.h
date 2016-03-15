@@ -1,0 +1,1 @@
+../../../LinkIDSDK/linkid-sdk-ios/linkid-sdk-ios/LinkIDQRInfo.h

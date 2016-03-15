@@ -18,7 +18,7 @@
 
 + (void)installLinkID {
     
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"itms-apps://itunes.com/apps/linkidformobile"]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://itunes.apple.com/us/app/linkid/id522371545?mt=8"]];
 }
 
 + (BOOL)isLinkIDInstalled {
