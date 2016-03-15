@@ -35,7 +35,7 @@
     self.linkIDOtherDevice = NO;
     
     // start a new linkID authentication session
-    [[LinkIDWSController get] authStart:[NSLocale preferredLanguages][0] completion:^(LinkIDAuthSession *authSession, NSError *error) {
+    [[LinkIDWSController get] startAuthentication:[NSLocale preferredLanguages][0] completion:^(LinkIDAuthSession *authSession, NSError *error) {
         [self handleLinkIDSessionStart:authSession withHud:hud];
     }];
 }
@@ -54,10 +54,9 @@
     self.linkIDSession = nil;
     self.linkIDOtherDevice = YES;
     
-    [[LinkIDWSController get] authStart:[NSLocale preferredLanguages][0] completion:^(LinkIDAuthSession *authSession, NSError *error) {
+    [[LinkIDWSController get] startAuthentication:[NSLocale preferredLanguages][0] completion:^(LinkIDAuthSession *authSession, NSError *error) {
         [self handleLinkIDSessionStart:authSession withImageView:imageView withDelegate:delegate withHud:hud];
     }];
-    
 }
 
 - (void) handleLinkIDSessionStart:(LinkIDAuthSession *)linkIDSession withImageView:(UIImageView *)imageView withDelegate:(id<LIDelegate>)delegate withHud:(MBProgressHUD *)hud {
@@ -118,7 +117,7 @@
 
 - (void) pollLinkID:(id<LIDelegate>)delegate withImageView:(UIImageView *)imageView withHud:(MBProgressHUD *)hud completion:(void (^)(BOOL done))completionBlock {
     
-    [[LinkIDWSController get] authPoll:[NSLocale preferredLanguages][0] withSession:self.linkIDSession.sessionId completion:^(LinkIDAuthPollResponse *authPollResponse, NSError *error) {
+    [[LinkIDWSController get] pollAuthentication:[NSLocale preferredLanguages][0] withSession:self.linkIDSession.sessionId completion:^(LinkIDAuthPollResponse *authPollResponse, NSError *error) {
         
         if (nil != error) {
 

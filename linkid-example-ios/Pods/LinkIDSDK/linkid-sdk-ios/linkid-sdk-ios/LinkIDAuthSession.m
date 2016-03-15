@@ -7,6 +7,7 @@
 //
 
 #import "LinkIDAuthSession.h"
+#import "LinkIDUtil.h"
 
 @implementation LinkIDAuthSession
 
@@ -22,16 +23,16 @@
     
     if (nil != dictionary) {
         
-        self.sessionId = [dictionary valueForKeyPath:@"sessionId"];
+        self.sessionId = NSNullToNil([dictionary valueForKeyPath:@"sessionId"]);
         self.qrCodeInfo = [[LinkIDQRInfo alloc] init];
         
-        NSDictionary *qrCodeInfoDictionary = [dictionary valueForKeyPath:@"qrCodeInfo"];
+        NSDictionary *qrCodeInfoDictionary = NSNullToNil([dictionary valueForKeyPath:@"qrCodeInfo"]);
 
-        self.qrCodeInfo.qrEncoded = [qrCodeInfoDictionary valueForKeyPath:@"qrEncoded"];
+        self.qrCodeInfo.qrEncoded = NSNullToNil([qrCodeInfoDictionary valueForKeyPath:@"qrEncoded"]);
         self.qrCodeInfo.qrImage = [[NSData alloc] initWithBase64EncodedString:self.qrCodeInfo.qrEncoded options:0];
-        self.qrCodeInfo.qrCodeURL = [qrCodeInfoDictionary valueForKeyPath:@"qrCodeURL"];
-        self.qrCodeInfo.qrContent = [qrCodeInfoDictionary valueForKeyPath:@"qrContent"];
-        NSNumber *mobileNumber = [qrCodeInfoDictionary valueForKeyPath:@"mobile"];
+        self.qrCodeInfo.qrCodeURL = NSNullToNil([qrCodeInfoDictionary valueForKeyPath:@"qrCodeURL"]);
+        self.qrCodeInfo.qrContent = NSNullToNil([qrCodeInfoDictionary valueForKeyPath:@"qrContent"]);
+        NSNumber *mobileNumber = NSNullToNil([qrCodeInfoDictionary valueForKeyPath:@"mobile"]);
         self.qrCodeInfo.mobile = [mobileNumber boolValue];
         
     }

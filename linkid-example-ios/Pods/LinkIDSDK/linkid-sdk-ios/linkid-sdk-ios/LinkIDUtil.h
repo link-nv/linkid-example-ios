@@ -9,6 +9,9 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+#define NSNullToNil(__O)                                                                        \
+({ __typeof__(__O) __o = __O; __o == (id)[NSNull null]? nil: __o; })
+
 @interface LinkIDUtil : NSObject
 
 + (UIColor *)linkIDGreen;

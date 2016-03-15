@@ -40,8 +40,8 @@ static LinkIDWSController *wsInstance;
 
 #pragma mark - Calls
 
-- (void) authStart:(NSString *)language
-        completion:(void (^)(LinkIDAuthSession *authSession, NSError *error))completion {
+- (void) startAuthentication:(NSString *)language
+                  completion:(void (^)(LinkIDAuthSession *authSession, NSError *error))completion {
     
     if (nil == language) {
         language = [NSLocale preferredLanguages][0];
@@ -49,9 +49,9 @@ static LinkIDWSController *wsInstance;
     
     NSDictionary *parameters = @{ @"language" : language };
     
-    NSURL    *url       = [[NSURL URLWithString:self.restBaseURL] URLByAppendingPathComponent:@"/authStart"];
+    NSURL    *url       = [[NSURL URLWithString:self.restBaseURL] URLByAppendingPathComponent:@"/startAuthentication"];
     
-    [self postTo:[url absoluteString] withFormParameters:parameters completion:^(NSDictionary *responseData, NSError *error) {
+    [self get:[url absoluteString] withFormParameters:parameters completion:^(NSDictionary *responseData, NSError *error) {
 
         if (nil != error) {
             completion(nil, error);
@@ -62,9 +62,9 @@ static LinkIDWSController *wsInstance;
     
 }
 
-- (void) authPoll:(NSString *)language
-      withSession:(NSString *)sessionId
-       completion:(void (^)(LinkIDAuthPollResponse *authPollResponse, NSError *error))completion {
+- (void) pollAuthentication:(NSString *)language
+                withSession:(NSString *)sessionId
+                 completion:(void (^)(LinkIDAuthPollResponse *authPollResponse, NSError *error))completion {
     
     if (nil == language) {
         language = [NSLocale preferredLanguages][0];
@@ -72,9 +72,9 @@ static LinkIDWSController *wsInstance;
     
     NSDictionary *parameters = @{ @"language" : language, @"sessionId" : sessionId };
     
-    NSURL    *url       = [[NSURL URLWithString:self.restBaseURL] URLByAppendingPathComponent:@"/authPoll"];
+    NSURL    *url       = [[NSURL URLWithString:self.restBaseURL] URLByAppendingPathComponent:@"/pollAuthentication"];
     
-    [self postTo:[url absoluteString] withFormParameters:parameters completion:^(NSDictionary *responseData, NSError *error) {
+    [self get:[url absoluteString] withFormParameters:parameters completion:^(NSDictionary *responseData, NSError *error) {
         
         if (nil != error) {
             completion(nil, error);
@@ -88,7 +88,7 @@ static LinkIDWSController *wsInstance;
 
 #pragma mark - Helper methods
 
-- (void)    postTo:(NSString *)serverUrl
+- (void)    get:(NSString *)serverUrl
 withFormParameters:(NSDictionary *)params
         completion:(void (^)(NSDictionary *responseData, NSError *error))completion {
     
@@ -97,7 +97,7 @@ withFormParameters:(NSDictionary *)params
     // language
     [manager.requestSerializer setValue:[NSLocale preferredLanguages][0] forHTTPHeaderField:@"Accept-Language"];
     
-    [manager POST:serverUrl parameters:params
+    [manager GET:serverUrl parameters:params
           success:^(AFHTTPRequestOperation *operation, id responseObject) {
               completion(responseObject, nil);
           }

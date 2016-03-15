@@ -8,6 +8,7 @@
 
 #import "LIAppDelegate.h"
 #import <LinkIDWSController.h>
+#import <AFNetworkActivityLogger.h>
 
 @implementation LIAppDelegate
 
@@ -17,7 +18,6 @@
 }
 
 + (void)initialize {
-    
 }
 
 
@@ -31,7 +31,11 @@
     self.linkIDUtil = [[LIUtil alloc] init];
     
     // init linkID WS Controller
-    [LinkIDWSController initialize:@"https://192.168.5.14:8443/linkid"];
+    [LinkIDWSController initialize:@"http://192.168.5.14:8080/linkid-example-rest/restv1/linkid"];
+    
+    // AFNetworking logging
+    [[AFNetworkActivityLogger sharedLogger] startLogging];
+    [[AFNetworkActivityLogger sharedLogger] setLevel:AFLoggerLevelDebug];
     
     return YES;
 }

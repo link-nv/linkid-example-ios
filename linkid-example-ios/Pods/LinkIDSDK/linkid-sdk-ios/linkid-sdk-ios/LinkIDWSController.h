@@ -16,11 +16,11 @@
 + (void) initialize:(NSString *)restBaseURL;
 + (LinkIDWSController *)get;
 
-- (void) authStart:(NSString *)language
-        completion:(void (^)(LinkIDAuthSession *authSession, NSError *error))completion;
+- (void) startAuthentication:(NSString *)language
+                  completion:(void (^)(LinkIDAuthSession *authSession, NSError *error))completion;
 
-- (void) authPoll:(NSString *)language
-      withSession:(NSString *)sessionId
-        completion:(void (^)(LinkIDAuthPollResponse *authPollResponse, NSError *error))completion;
+- (void) pollAuthentication:(NSString *)language
+                withSession:(NSString *)sessionId
+                 completion:(void (^)(LinkIDAuthPollResponse *authPollResponse, NSError *error))completion;
 
 @end

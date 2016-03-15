@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'DA896EC58494D7D1FFF3A71C'
+               BlueprintIdentifier = '892432889550B42CA0835A8B'
                BlueprintName = 'LinkIDSDK'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libLinkIDSDK.a'>
