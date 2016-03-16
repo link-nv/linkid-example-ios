@@ -378,6 +378,7 @@
 				GCC_PREFIX_HEADER = "linkid-example-ios/linkid-example-ios-Prefix.pch";
 				INFOPLIST_FILE = "linkid-example-ios/linkid-example-ios-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "net.linkid-example-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -393,6 +394,7 @@
 				GCC_PREFIX_HEADER = "linkid-example-ios/linkid-example-ios-Prefix.pch";
 				INFOPLIST_FILE = "linkid-example-ios/linkid-example-ios-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "net.linkid-example-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
