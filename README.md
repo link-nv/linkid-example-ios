@@ -1,21 +1,16 @@
 linkID iOS Example
 ==================
 
-Example iOS app showing how linkID can be integrated in your iOS app.
+This example app shows how to integration linkID into an iOS app.
 
-To tryout this app, you'll need to run the [linkID REST example webapp](https://github.com/link-nv/linkid-example-rest). Simply build this webapp with maven and drop it in your servlet container of your choice.
+The example works out of the box making use of a [linkID example REST](https://github.com/link-nv/linkid-example-rest) service.
 
-Once you have this webapp up and running, change the REST path in **LIStore.m** to point to your webapp
+If you wish to try this app out against your own REST service, update the initialization of the LinkIDWSController class [here](https://github.com/link-nv/linkid-example-ios/blob/master/linkid-example-ios/linkid-example-ios/LIAppDelegate.m)
 
 ```
-#define REST_URL    @"http://192.168.0.199:9090/restv1"
+    [LinkIDWSController initialize:@"https://<your-host>/restv1/linkid"];
 ```
-
-**NOTE** that the example REST webapp and so by consequence the iOS example app are configured to talk to the [demo linkID environment](https://demo.linkid.be)
-The linkID for mobile iOS production app in the appstore **cannot** be used with this environment. You will need a demo linkID iOS app for this.
-
-Contact someone from the linkID development team to get access to this client which is distributed via [Testflight](http://testflightapp.com)
 
 ## Sequence diagram
 
-![Sequence diagram](https://raw.githubusercontent.com/link-nv/linkid-example-ios/master/ios-linkid-flow.png)
+![Sequence diagram](https://raw.githubusercontent.com/link-nv/linkid-sdk/master/images/linkid-sync.png)

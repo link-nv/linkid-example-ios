@@ -31,7 +31,7 @@
     self.linkIDUtil = [[LIUtil alloc] init];
     
     // init linkID WS Controller
-    [LinkIDWSController initialize:@"http://192.168.5.14:8080/linkid-example-rest/restv1/linkid"];
+    [LinkIDWSController initialize:@"https://demo.linkid.be/linkid-example-rest/restv1/linkid"];
     
     // AFNetworking logging
     [[AFNetworkActivityLogger sharedLogger] startLogging];
